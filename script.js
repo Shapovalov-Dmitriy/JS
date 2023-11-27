@@ -271,3 +271,156 @@ getSum(5);
 let result = getSum(5);
 console.log(result);
 */
+/*
+// Замена текста при нажатии кнопки
+let text = document.querySelector(".block__text");
+let btn = document.querySelector(".block__button");
+
+btn.addEventListener("click", function () {
+    text.textContent = "hello";
+});
+*/
+/*
+// Массивы
+
+// Массив это некий список чего-то. В массиве иогут быть другие массивы, объекты, булевые и примитивные данные.
+
+let someArray = [];
+
+// Массив состоит из пары индекс: значение. Индекс всегда начинается с 0!!!
+
+someArray.push(24);
+someArray.push("Привет"); // Оператор push() позволяет добавлять в массив данные всегда добавляет данные в конец массива
+console.log(someArray.length); // Метод length позволяет узнать длинну массива
+
+console.log(someArray[1]); //Обращаемся к значению через индекс.(как-бы говорим "возьми с полки [1] содержимое и дай мне")
+
+console.log(typeof someArray);
+console.log(someArray);
+*/
+
+// Работа с DOM
+
+// Коллекции
+//  Коллекция это список одинаковых элементов с одинаковым классом.
+
+// получить коллекцию в переменную
+// Коллекция получается в переменную через querySelectorAll
+/*
+const itemLists = document.querySelectorAll(".list__item");
+
+console.log(typeof itemLists);
+console.log(itemLists);
+
+console.log(itemLists.length); /* // Получить длину коллекции
+*/
+/*
+// Метод перебора массива (коллекции)
+array.foreEach((element) => {
+    // какой-то код
+});
+*/
+/*
+// Перебираю коллекцию и вывожу в консоль каждый пункт
+// Переменная itemList создается ТОЛЬКО внутри этого цикла и в нее записывается результат перебора
+itemLists.forEach((itemList, index, array) => {
+    console.log(itemList); // Значение
+    console.log(index); // Индекс (если нужно)
+    console.log(array); // сам массив(коллекция) (если нужно)
+});
+*/
+/* 
+itemLists.forEach((itemList, index) => {
+    
+    // console.log(itemList); // Значение
+    // console.log(index); // Индекс (если нужно)
+    
+    console.log(`Объект ${itemList} с индексом ${index}`);
+});
+*/
+/*
+// получить первый попавшийся элемент с таким классом или параметром (НЕ КОЛЛЕКЦИЯ), не нужно использовать цикл
+const itemLists = document.querySelector(".list__item");
+console.log(itemLists);
+*/
+/*
+// проверка на существование одного объекта, элемента.
+const list = document.querySelector(".list");
+console.log(list);
+// Проверяем. Если объект существыет, то выполняем код.
+if (list) {
+    console.log("Есть!");
+    // выполняем код
+}
+*/
+/*
+// проверка на существование коллекции объектов, элементов.
+const itemLists = document.querySelectorAll(".list__item");
+console.log(itemLists);
+//  Проверяем коллекцию на заполненость (что коллекция не пустая).
+if (itemLists.length) {
+    console.log("Есть коллекция");
+}
+*/
+
+// Работа с классами
+/*
+const list = document.querySelector(".list");
+list //Обращаемся к элементу через переменную
+list.classList //получаем доступ к селектору "class" объекта. 
+list.classList.add();// Добавить класс. внутри скобок ставим кавычки ('').ТОЧКУ НЕ СТАВИМ; 
+list.classList.remove(); // Удалить Класс. внутри скобок ставим кавычки ('').ТОЧКУ НЕ СТАВИМ;
+list.classList.toggle(); // Переключаем Класс. Если есть класс, то уберет. Если нет класса, то добавит. Внутри скобок ставим кавычки ('').ТОЧКУ НЕ СТАВИМ;
+*/
+/*
+const list = document.querySelector(".list");
+list.classList.add("active"); // Добавить класс active элементу с классом list
+
+// Проверка "Есть ли класс у объекта?"
+
+// contains() // проверяет есть ли класс у объекта
+// Проверка. Если элемент  существует и у него есть нужный класс, то выполняем код.
+if (list && list.classList.contains("active")) {
+    console.log("Класс есть!");
+} else {
+    console.log("Класса нет(");
+}
+*/
+
+// Проверка "Есть ли класс у элементов коллекции?"
+// Получаем коллекцию
+const itemLists = document.querySelectorAll(".list__item");
+/*
+//  Проверка на существование объектов в коллекции
+if (itemLists.length) {
+    // Перебор объектов коллекции
+    itemLists.forEach((item) => {
+        //  Проверка на существование класса в каждом элеметне коллекции
+        if (item.classList.contains("active")) {
+            // Если класс есть, то удаляем класс
+            item.classList.remove("active");
+            // Вывод в консоль (не обязательно)
+            console.log("Класс есть!");
+        } else {
+            console.log("Класса нет(");
+        }
+    });
+}
+*/
+/*
+//  Проверка на существование объектов в коллекции
+if (itemLists.length) {
+    // Перебор объектов коллекции
+    itemLists.forEach((item) => {
+        //  Проверка на существование класса в каждом элеметне коллекции
+        if (!item.classList.contains("active")) {
+            // Если класса нет, то добавляем класс
+            item.classList.add("active");
+            // Вывод в консоль (не обязательно)
+            console.log("Класс есть!");
+        } else {
+            console.log("Класса нет(");
+        }
+    });
+}
+*/
