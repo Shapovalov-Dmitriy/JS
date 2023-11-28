@@ -389,7 +389,7 @@ if (list && list.classList.contains("active")) {
 
 // Проверка "Есть ли класс у элементов коллекции?"
 // Получаем коллекцию
-const itemLists = document.querySelectorAll(".list__item");
+// const itemLists = document.querySelectorAll(".list__item");
 /*
 //  Проверка на существование объектов в коллекции
 if (itemLists.length) {
@@ -420,6 +420,41 @@ if (itemLists.length) {
             console.log("Класс есть!");
         } else {
             console.log("Класса нет(");
+        }
+    });
+}
+*/
+/*
+// =========== home work ============
+const list = document.querySelector(".list");
+const btn = document.querySelector(".block__button");
+const blockText = document.querySelector(".block__text");
+
+// console.log(list);
+if (list && !list.classList.contains("green")) {
+    list.classList.add("green");
+}
+if (btn) {
+    btn.addEventListener("click", () => {
+        list.classList.toggle("green");
+    });
+}
+
+blockText.addEventListener("mouseover", () => {
+    list.classList.remove("green");
+});
+blockText.addEventListener("mouseout", () => {
+    list.classList.add("green");
+});
+
+const collectionsLinks = document.querySelectorAll(".list__link");
+const collectionsLists = document.querySelectorAll(".list__item");
+if (collectionsLinks.length) {
+    collectionsLinks.forEach((e) => {
+        if (e.classList.contains("red")) {
+            e.addEventListener("click", () => {
+                e.classList.toggle("yellow");
+            });
         }
     });
 }

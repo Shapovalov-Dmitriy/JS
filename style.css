@@ -1,0 +1,46 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.list {
+    list-style: none;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+*.list__item:not(:last-child) {
+    margin-bottom: 10px;
+}
+.list__link {
+    font-size: 20px;
+    color: #000;
+    text-decoration: none;
+    text-transform: capitalize;
+}
+.green {
+    background-color: green;
+    transition: all 0.5s ease;
+}
+.block__text {
+    padding: 20px;
+    background-color: #558866;
+    max-width: 300px;
+}
+.block {
+    position: relative;
+}
+.block__button {
+    padding: 10px 15px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0px 0px 5px 2px #000;
+}
+.red {
+    background-color: red;
+}
+.yellow {
+    color: yellow;
+}
