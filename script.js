@@ -424,7 +424,7 @@ if (itemLists.length) {
     });
 }
 */
-/*
+
 // =========== home work ============
 const list = document.querySelector(".list");
 const btn = document.querySelector(".block__button");
@@ -458,4 +458,37 @@ if (collectionsLinks.length) {
         }
     });
 }
-*/
+
+// =========== home work-2 ============
+// dark theme
+const themeBtn = document.querySelector(".theme__btn"),
+    page = document.querySelector("body");
+if (themeBtn) {
+    themeBtn.addEventListener("click", () => {
+        page.classList.toggle("dark-theme");
+    });
+}
+// Переключение вида карточек
+
+const itemCard = document.querySelectorAll(".cards");
+const btnLine = document.querySelector(".btn-line");
+const btnCube = document.querySelector(".btn-cube");
+
+if (btnLine) {
+    btnLine.addEventListener("click", function () {
+        if (itemCard.length) {
+            itemCard.forEach((e) => {
+                e.classList.add("line");
+            });
+        }
+    });
+}
+if (btnCube) {
+    btnCube.addEventListener("click", () => {
+        if (itemCard.length) {
+            itemCard.forEach((e) => {
+                e.classList.remove("line");
+            });
+        }
+    });
+}
