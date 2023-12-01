@@ -424,7 +424,7 @@ if (itemLists.length) {
     });
 }
 */
-
+/*
 // =========== home work ============
 const list = document.querySelector(".list");
 const btn = document.querySelector(".block__button");
@@ -489,6 +489,101 @@ if (btnCube) {
             itemCard.forEach((e) => {
                 e.classList.remove("line");
             });
+        }
+    });
+}
+*/
+/*
+// =========== burger menu логика №1 =============
+1) Получае объект бургер 
+2) Получаем объект меню который нужно открыть
+3) Вешаем обработчик событий click на бургер (п.1)
+4) Добавляем класс к бургеру (п.1)
+5) Добавляем класс к меню (п.2)
+*/
+/*
+const burger = document.querySelector(".some-menu__icon");
+const menu = document.querySelector(".some-menu__body");
+
+if (burger) {
+    burger.addEventListener("click", () => {
+        menu.classList.toggle("menu-active");
+        burger.classList.toggle("menu-active");
+    });
+}
+*/
+/*///////////// Наследование //////////////// */
+/*
+Принцип наследования это: взять блок, с помощью closest добавить в переменную.
+Повешать событие на элемент внутри этого блока и если у этого элемента есть нужный класс, выполнить действие.
+*/
+/*
+// =========== burger menu логика №2 =============
+1) Получае объект бургер 
+2) Получаем объект меню родительский
+3) Вешаем обработчик событий click на бургер (п.1)
+4) Добавляем класс к меню (п.2)
+*/
+/*
+const burger = document.querySelector(".some-menu__icon");
+// Получаем родительский элемент burger с классом ".some-menu"
+const menu = burger.closest(".some-menu");
+
+if (burger) {
+    burger.addEventListener("click", () => {
+        menu.classList.toggle("menu-active");
+        burger.classList.toggle("menu-active");
+    });
+}
+*/
+/*
+=========== HTML ==========
+// Получили одительский блок у кнопки с классом class="some-menu" 
+<div class="some-menu">
+          <nav class="some-menu__body">
+            <ul class="some-menu__list">
+              <li class="some-menu__item">
+                <a href="#" class="some-menu__link">пункт</a>
+              </li>
+              <li class="some-menu__item">
+                <a href="#" class="some-menu__link">пункт</a>
+              </li>
+              <li class="some-menu__item">
+                <a href="#" class="some-menu__link">пункт</a>
+              </li>
+              <li class="some-menu__item">
+                <a href="#" class="some-menu__link">пункт</a>
+              </li>
+              <li class="some-menu__item">
+                <a href="#" class="some-menu__link">пункт</a>
+              </li>
+            </ul>
+          </nav>
+// Кнопка для которой получаем родительский блок
+          <button class="some-menu__icon">
+            <span></span>
+          </button>
+        </div>
+
+================= SCSS ================
+// В стилях знак (&) нужно поставить после имени класса что будет означать искать выше а не внутри
+ .menu-active &
+
+*/
+/*
+////////////  Наследование пример //////////////
+1) Есть два списка с элементами
+2) Нужно добавить фоновый цвет списку только если у него в родителях есть класс ".block-list"
+*/
+// Получаем коллекцию списков
+const listItems = document.querySelectorAll(".list");
+
+// Проверяем на существование коллекции
+if (listItems.length) {
+    listItems.forEach((item) => {
+        // Проверяем, если у коллекции в родителях есть блок с классом block-list, выполняем код
+        if (item.closest(".block-list")) {
+            item.classList.add("green");
         }
     });
 }
