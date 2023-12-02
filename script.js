@@ -641,14 +641,54 @@ document.addEventListener("click", (e) => {
 */
 /*
     if (targetElement.closest(".list__link")) {
+        // Добавляем класс если в предках есть елемент с нужным классом .list__link
         targetElement.closest(".list__link").classList.add("link-active");
         e.preventDefault();
     } else {
+        // Находим коллекцию нужных объектов
         const listLinks = document.querySelectorAll(".list__link");
+        // пробегаем по элементам коллекции
         listLinks.forEach((linkList) => {
+            // удаляем класс у каждого элемента у которого этот класс есть
             linkList.classList.remove("link-active");
         });
     }
+
+
     // ......... дальше можно навешивать другие проверки и что-то делать с другими элементами на странице в данном случае по событию КЛИК.
 });
 */
+
+// Работа через функции
+const listLinks = document.querySelectorAll(".list__link");
+document.addEventListener("click", (e) => {
+    // target это именно тот элемент на который кликаем
+    const targetElement = e.target;
+    if (targetElement.closest(".list__link")) {
+        targetElement.closest(".list__link").classList.add("link-active");
+        e.preventDefault();
+    } else {
+        // эту переменную можно объявить выше в коде (глобально)
+        // Находим коллекцию нужных объектов
+        const listLinks = document.querySelectorAll(".list__link");
+        // Вызываем функцию и передаем в нее требуемые параметры. Коллекцию и класс который нужно удалить.
+        removeClasses(listLinks, "link-active");
+    }
+
+    // кнопка
+    // Сразу же в условии находим нужный элемент (без добавления в константу)
+    if (targetElement.closest(".btn-reset")) {
+        // применяем нужную функцию или выполняем нужный код.
+        removeClasses(listLinks, "link-active");
+    }
+});
+
+// Как сделать через функцию
+//Создаем функцию которая будет принимать два аргумента, сау коллекцию и класс который нужно удалить.
+
+function removeClasses(elements, className) {
+    elements.forEach((element) => {
+        // удаляем класс у каждого элемента у которого этот класс есть
+        element.classList.remove(className);
+    });
+}
