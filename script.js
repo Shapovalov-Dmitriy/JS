@@ -622,7 +622,7 @@ document.addEventListener("click", (e) => {
         e.preventDefault();
     }
     */
-    /*
+/*
     // вариант №2
     // проверяем не наш ли элемент кликнут? Ищем предка с нужным классом ".list__link"
     // CLOSEST ИЩЕТ НУЖНЫЙ КЛАСС И У ПРЕДКОВ И У САМОГО СЕБЯ (У ЭЛЕМЕНТА)
@@ -634,12 +634,12 @@ document.addEventListener("click", (e) => {
         e.preventDefault();
     }
 */
-    /*
+/*
 Задача: 
 1) При клике на ссылку, добавить\убрать класс
 2) При клике не на ссылку убрать все классы link-active с объектов .list__link
 */
-    /*
+/*
     if (targetElement.closest(".list__link")) {
         targetElement.closest(".list__link").classList.add("link-active");
         e.preventDefault();
@@ -649,7 +649,6 @@ document.addEventListener("click", (e) => {
             linkList.classList.remove("link-active");
         });
     }
-*/
     // ......... дальше можно навешивать другие проверки и что-то делать с другими элементами на странице в данном случае по событию КЛИК.
 });
 */
