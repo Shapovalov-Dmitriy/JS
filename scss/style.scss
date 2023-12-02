@@ -139,11 +139,13 @@ body {
     &__item {
     }
     &__link {
+        font-size: 20px;
         color: #fff;
         text-transform: uppercase;
         text-decoration: none;
     }
 }
+
 /* ///////////////////////////////////////////////////// */
 .list {
     list-style: none;
@@ -158,6 +160,9 @@ body {
     color: #000;
     text-decoration: none;
     text-transform: capitalize;
+    &.link-active {
+        color: red;
+    }
 }
 .green {
     background-color: green;

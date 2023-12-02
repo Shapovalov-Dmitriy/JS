@@ -567,7 +567,7 @@ if (burger) {
 
 ================= SCSS ================
 // В стилях знак (&) нужно поставить после имени класса что будет означать искать выше а не внутри
- .menu-active &
+.menu-active &
 
 */
 /*
@@ -575,15 +575,81 @@ if (burger) {
 1) Есть два списка с элементами
 2) Нужно добавить фоновый цвет списку только если у него в родителях есть класс ".block-list"
 */
-// Получаем коллекцию списков
+/*
+// Получаем коллекцию  всехорбъектов с классом list
 const listItems = document.querySelectorAll(".list");
-
 // Проверяем на существование коллекции
 if (listItems.length) {
+    // Бегаем по каждому из них
+    // item рождается в нутри функции и в нее передается каждый из перебираемых объектов
+    // вместо item можно задать любое имя
     listItems.forEach((item) => {
         // Проверяем, если у коллекции в родителях есть блок с классом block-list, выполняем код
         if (item.closest(".block-list")) {
+            // Если в родителях (предках) есть  блок с классом block-list, добавляем класс green
             item.classList.add("green");
         }
     });
 }
+*/
+/*
+const linkItems = document.querySelectorAll(".list__link");
+if (linkItems.length) {
+    linkItems.forEach((linkItem) => {
+        linkItem.addEventListener("click", (e) => {
+            linkItem.classList.add("link-active");
+            // Отменяет действие по умолчанию. (необходимо когда нужно отменить действие попумолчанию и\ или назначить потом свое действие или поведение.)
+            e.preventDefault();
+        });
+    });
+}
+*/
+// \\\\\\\\\\\\\\\\\\делегирование событий\\\\\\\\\\\\\\\\\\
+
+// Смысл делегирования: Повесить обработчик события на родителя или сразу на весь документ (страницу) и добавлять нужные события нужным елементам не навешивая каждый раз одно и тоже событие.
+/*
+document.addEventListener("click", (e) => {
+    // target это именно тот элемент на который кликаем
+    const targetElement = e.target;
+    /*
+    // проверяем не наш ли элемент кликнут
+    // вариант №1
+    // пишем класс нужного элемента
+    if (targetElement.classList.contains("list__link")) {
+        // вешаем класс на объект
+        targetElement.classList.add("link-active");
+        // Отменяем действие по умолчанию (если нужно).
+        e.preventDefault();
+    }
+    */
+    /*
+    // вариант №2
+    // проверяем не наш ли элемент кликнут? Ищем предка с нужным классом ".list__link"
+    // CLOSEST ИЩЕТ НУЖНЫЙ КЛАСС И У ПРЕДКОВ И У САМОГО СЕБЯ (У ЭЛЕМЕНТА)
+    // пишем класс нужного элемента
+    if (targetElement.closest(".list__link")) {
+        // вешаем класс на объект
+        targetElement.closest(".list__link").classList.add("link-active");
+        // Отменяем действие по умолчанию (если нужно).
+        e.preventDefault();
+    }
+*/
+    /*
+Задача: 
+1) При клике на ссылку, добавить\убрать класс
+2) При клике не на ссылку убрать все классы link-active с объектов .list__link
+*/
+    /*
+    if (targetElement.closest(".list__link")) {
+        targetElement.closest(".list__link").classList.add("link-active");
+        e.preventDefault();
+    } else {
+        const listLinks = document.querySelectorAll(".list__link");
+        listLinks.forEach((linkList) => {
+            linkList.classList.remove("link-active");
+        });
+    }
+*/
+    // ......... дальше можно навешивать другие проверки и что-то делать с другими элементами на странице в данном случае по событию КЛИК.
+});
+*/

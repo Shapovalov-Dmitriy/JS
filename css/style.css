@@ -179,6 +179,7 @@ body {
   }
 }
 .some-menu__link {
+  font-size: 20px;
   color: #fff;
   text-transform: uppercase;
   text-decoration: none;
@@ -200,6 +201,9 @@ body {
   color: #000;
   text-decoration: none;
   text-transform: capitalize;
+}
+.list__link.link-active {
+  color: red;
 }
 
 .green {
