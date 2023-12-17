@@ -576,7 +576,7 @@ if (burger) {
 2) Нужно добавить фоновый цвет списку только если у него в родителях есть класс ".block-list"
 */
 /*
-// Получаем коллекцию  всехорбъектов с классом list
+// Получаем коллекцию  всех объектов с классом list
 const listItems = document.querySelectorAll(".list");
 // Проверяем на существование коллекции
 if (listItems.length) {
@@ -586,7 +586,7 @@ if (listItems.length) {
     listItems.forEach((item) => {
         // Проверяем, если у коллекции в родителях есть блок с классом block-list, выполняем код
         if (item.closest(".block-list")) {
-            // Если в родителях (предках) есть  блок с классом block-list, добавляем класс green
+            // Если в родителях (предках) есть блок с классом block-list, добавляем класс green
             item.classList.add("green");
         }
     });
@@ -658,7 +658,7 @@ document.addEventListener("click", (e) => {
     // ......... дальше можно навешивать другие проверки и что-то делать с другими элементами на странице в данном случае по событию КЛИК.
 });
 */
-
+/*
 // Работа через функции
 const listLinks = document.querySelectorAll(".list__link");
 document.addEventListener("click", (e) => {
@@ -691,4 +691,99 @@ function removeClasses(elements, className) {
         // удаляем класс у каждого элемента у которого этот класс есть
         element.classList.remove(className);
     });
+}   
+*/
+// ///////////////// функции далее /////////////////
+
+// //////////////// навигация по дереву DOM ///////////////////
+/*
+const block = document.querySelector('.block');
+
+// Получить предыдущий объект (находящийся перед блокомб тот от которого отталкиваемся)
+// записываем в переменную блок тогожа уровня который находится сразу перед тем от которого отталкиваемся
+const blockPrev = block.previousElementSibling;
+// console.log(blockPrev);
+// Получить следующий объект (находящийся после блока тот от которого отталкиваемся)
+// записываем в переменную блок того же уровня который находится сразу после того от которого отталкиваемся
+const blockNext = block.nextElementSibling;
+// console.log(blockNext);
+*/
+/*
+// Получить предка блока
+const blockParent1 = block.closest('.page');
+console.log(blockParent1);
+*/
+/*
+// Получить непосредственного родителя нашего объекта (block)
+const blockParent = block.parentElement;
+// console.log(blockParent);
+*/
+// Дочерние элементы
+
+/*
+// Получить все дочерние элементы блока любого уровня вложенности
+const bloksChildrensAll = block.querySelectorAll('*');
+console.log(bloksChildrensAll);
+*/
+/*
+// Получить дочерние элементы блока первого уровня вложенности
+const blockChildrens = block.children;
+// console.log(blockChildrens);
+
+// Искать первый и последний элемент 
+
+// Искать первый дочерний элемент
+const blockFirstChild = block.firstElementChild;
+// console.log(blockFirstChild);
+
+// Искать последний дочерний элемент 
+const blockLastChild = block.lastElementChild;
+// console.log(blockLastChild);
+*/
+// спойлер (аккардион)
+// Задача: При клике на заголовокБ показать объект
+/*
+1) Получить слбытие на документе (делегирование)
+2) Создаем функцию
+3) Работа с свойством (атрибутом) или классом
+*/
+// По событию клик, отправляемся сразу в функцию liteSpoller.
+document.addEventListener('click', liteSpoller); // Получаем событие на документе по клику
+// А уже в функции и совершаются все действия
+function liteSpoller(e) {
+    // Первым делом получаем нажатый объект
+    const targetElement = e.target;
+    // отлавливаем нужный нам кликнутый элемент
+    if (targetElement.closest('.akkardion__title')) {
+        // ........ Работа с свойством (атрибутом) ..........
+        // Как получить следующий объект после кликнутого
+        // Способ №1
+        /*
+        Здесь я обращаюсь к родителю .akkardion__title и внутри родителя ищу .akkardion__body
+        targetElement.parentElement.querySelector('.akkardion__body').hidden = false;
+        console.log(targetElement);
+        */
+        // Способ №2
+        /*
+        Здесь я спазу получаю следующий блок, который идет  после блока на который я кликнул.
+        targetElement.nextElementSibling.hidden = false
+        */
+        /*  
+        // ......... Работа с классом ..........
+        targetElement.nextElementSibling.classList.toggle('active');
+        */
+        // Способ №3
+        /*
+        Работа с атрибуттом hidden  из js без классов css
+        */
+        /*
+        if (targetElement.nextElementSibling.hidden) {
+            targetElement.nextElementSibling.hidden = false;
+        } else {
+            targetElement.nextElementSibling.hidden = true;
+        }
+        // тоже самое тернарным оператором
+        targetElement.nextElementSibling.hidden = targetElement.nextElementSibling.hidden ? false : true;
+        */
+    }
 }

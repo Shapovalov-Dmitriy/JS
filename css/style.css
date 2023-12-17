@@ -379,3 +379,18 @@ body {
 .dark-theme .menu__link:active {
   color: #000;
 }
+
+.akkardion {
+  padding: 20px;
+  list-style: none;
+}
+.akkardion__item {
+  margin-bottom: 10px;
+}
+.akkardion__body {
+  background-color: #fff;
+  padding: 5px;
+}
+.akkardion__body.active {
+  display: block;
+}
