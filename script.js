@@ -747,6 +747,7 @@ const blockLastChild = block.lastElementChild;
 2) Создаем функцию
 3) Работа с свойством (атрибутом) или классом
 */
+/*
 // По событию клик, отправляемся сразу в функцию liteSpoller.
 document.addEventListener('click', liteSpoller); // Получаем событие на документе по клику
 // А уже в функции и совершаются все действия
@@ -755,35 +756,126 @@ function liteSpoller(e) {
     const targetElement = e.target;
     // отлавливаем нужный нам кликнутый элемент
     if (targetElement.closest('.akkardion__title')) {
-        // ........ Работа с свойством (атрибутом) ..........
-        // Как получить следующий объект после кликнутого
-        // Способ №1
-        /*
-        Здесь я обращаюсь к родителю .akkardion__title и внутри родителя ищу .akkardion__body
-        targetElement.parentElement.querySelector('.akkardion__body').hidden = false;
-        console.log(targetElement);
         */
-        // Способ №2
-        /*
-        Здесь я спазу получаю следующий блок, который идет  после блока на который я кликнул.
-        targetElement.nextElementSibling.hidden = false
-        */
-        /*  
-        // ......... Работа с классом ..........
-        targetElement.nextElementSibling.classList.toggle('active');
-        */
-        // Способ №3
-        /*
-        Работа с атрибуттом hidden  из js без классов css
-        */
-        /*
-        if (targetElement.nextElementSibling.hidden) {
-            targetElement.nextElementSibling.hidden = false;
-        } else {
-            targetElement.nextElementSibling.hidden = true;
-        }
-        // тоже самое тернарным оператором
-        targetElement.nextElementSibling.hidden = targetElement.nextElementSibling.hidden ? false : true;
-        */
-    }
+// ........ Работа с свойством (атрибутом) ..........
+// Как получить следующий объект после кликнутого
+// Способ №1
+/*
+Здесь я обращаюсь к родителю .akkardion__title и внутри родителя ищу .akkardion__body
+targetElement.parentElement.querySelector('.akkardion__body').hidden = false;
+console.log(targetElement);
+*/
+// Способ №2
+/*
+Здесь я спазу получаю следующий блок, который идет  после блока на который я кликнул.
+targetElement.nextElementSibling.hidden = false
+*/
+/*  
+// ......... Работа с классом ..........
+targetElement.nextElementSibling.classList.toggle('active');
+*/
+// Способ №3
+/*
+Работа с атрибуттом hidden  из js без классов css
+*/
+/*
+if (targetElement.nextElementSibling.hidden) {
+    targetElement.nextElementSibling.hidden = false;
+} else {
+    targetElement.nextElementSibling.hidden = true;
 }
+// тоже самое тернарным оператором
+targetElement.nextElementSibling.hidden = targetElement.nextElementSibling.hidden ? false : true;
+*/
+/*
+}
+}
+*/
+///////////////// Размеры ////////////////////
+
+const sector = document.querySelector('.sector');
+
+// Ширина 
+
+const sectorWidth = sector.offsetWidth;
+// console.log(`Ширина объекта ${sectorWidth}px`);
+
+// Высота
+
+const sectorHeight = sector.offsetHeight;
+// console.log(`Высота объекта ${sectorHeight}px`);
+
+// Метод который возвращает положение объекта относительно ВЬЮПОРТА
+// Имеет параметры top, left
+/*
+getBoundingClientRect().top
+getBoundingClientRect().left
+// Получаем положение блока относительно сайта (ВЬЮПОРТА)
+    console.log(block.getBoundingClientRect().top);
+*/
+
+/*
+// Положение объекта относительно страницы (НЕ ВЬЮПОРТА)
+const top = block.offsetTop; //от верха
+const top = block.offsetLeft; // с лева
+*/
+
+// Задача:
+// В момент достижения блока, шапка отлипает и уходит за экран
+
+// Решение:
+/*
+1) Слушать скролл страницы
+2) Измерять положение целевого блока
+3) В нужный момент работать с классами шапки
+*/
+
+//  Получение объектов
+
+// Получаем шапку и целевой блок до которого дойдет шапка
+const header = document.querySelector('.sector'),
+    block = document.querySelector('.some-block'),
+    // получение высоту шапки
+    headerHeight = header.offsetHeight;
+// передаем в константу вычисление высоты шапки плюс 10 пикселей 
+const moment = headerHeight + 10;
+// Событие прокрутки ОКНА
+// событие scroll вешается ТОЛЬКО на window
+window.addEventListener('scroll', setHeaderStyle);
+/*
+window.scrollY // Высчитывает количество пикселей в данный момент по вертикали
+window.scrollX // Высчитывает количество пикселей в данный момент по горизонтали
+*/
+
+function setHeaderStyle(e) {
+    // передаем в константу вычисление высоты шапки плюс 10 пикселей 
+    // const moment = headerHeight + 10;
+
+    // console.log(`Объект ниже верхней части экрана на ${block.getBoundingClientRect().top}`);
+    // console.log(`Момент ${moment}`);
+    // Проверяем если положение блока меньше или равно высоте шапки + 10 px, выполняем код
+    if (block.getBoundingClientRect().top <= moment) {
+        // console.log('Сработало!');
+        // Прописываем в HTML через инлайновые стили Положение объекта относительно верха страницы минус высота шапки (с 10ю пикселями)
+        header.style.top = `${block.offsetTop - moment}px`;
+        // Добавляем класс по которому шапка будет уезжать вверх или исчезать
+        header.classList.add('_active');
+    } else {
+        // В противном случае забираем
+        header.style.top = ``;
+        // Если условие не выполнено, забираем класс по коорому шапка исчезает
+        header.classList.remove('_active');
+    }
+};
+
+// Скролл до блока 
+
+const scrollBtn = document.querySelector('.sector__btn');
+
+scrollBtn.addEventListener("click", function (e) {
+    const goTo = block.offsetTop - moment;
+    window.scrollTo({
+        top: goTo,
+        behavior: 'smooth'
+    });
+});

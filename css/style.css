@@ -29,6 +29,7 @@ body {
 }
 
 .page {
+  position: relative;
   -webkit-box-flex: 1;
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
@@ -393,4 +394,24 @@ body {
 }
 .akkardion__body.active {
   display: block;
+}
+
+.sector {
+  background-color: #dd1414;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 50px;
+  width: 100%;
+}
+.sector._active {
+  position: absolute;
+}
+
+.some-block {
+  background-color: #1673df;
+  font-size: 34px;
+  color: #000;
+  margin-top: 500px;
+  margin-bottom: 10000px;
 }

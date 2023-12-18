@@ -22,6 +22,7 @@ body {
 }
 
 .page {
+    position: relative;
     flex: 1 1 auto;
 }
 
@@ -380,4 +381,24 @@ body {
             display: block;
         }
     }
+}
+//////////// sector ////////////
+.sector {
+    background-color: #dd1414;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 50px;
+    width: 100%;
+    &._active {
+        position: absolute;
+    }
+}
+
+.some-block {
+    background-color: #1673df;
+    font-size: 34px;
+    color: #000;
+    margin-top: 500px;
+    margin-bottom: 10000px;
 }
