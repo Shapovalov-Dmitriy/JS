@@ -31,10 +31,6 @@ body {
 	height: 50px;
 }
 
-.page {
-	position: relative;
-}
-
 [class*="__container"] {
 	max-width: 1100px;
 	margin: 0 auto;
@@ -401,4 +397,10 @@ body {
 	color: #000;
 	margin-top: 500px;
 	margin-bottom: 10000px;
+}
+.block {
+	padding: 20px 0;
+	background-color: #fff;
+	color: #000;
+	font-size: 24px;
 }

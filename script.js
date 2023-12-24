@@ -869,7 +869,7 @@ console.log(getComment.data);
 //////////////// Методы создания элементов и узлов в HTML через JS //////////////////
 //  создание элемента (тега)
 // createElement('div');
-
+/*
 const newElement = document.createElement('div');
 // console.log(newElement);
 
@@ -877,9 +877,46 @@ const newElement = document.createElement('div');
 
 newElement.innerHTML = `Я созданыый через <span class="yellow">JS</span> новый элемент!!!`;
 console.log(newElement);
+*/
+/*
+// Если нужно создать не элемент а текстовый УЗЕЛ
+// createTextNode
 
+const newText = document.createTextNode('Привет');
+console.log(newText);
+*/
 
+////////// Методы вставки элементов созданных через JS в HTML //////////
+// 1) Получаем объект с которым хотим взаимодействовать
 
+const newBlock = document.querySelector('.block');
+console.log(newBlock);
+
+// 2) Создаем новый элемент (тег)
+
+const newElement = document.createElement('div');
+
+// 3) Наполняем новый элемент
+
+newElement.innetHTML = `Я наполнение <span class="yellow">нового</span> элемента`;
+
+// Вставляем новый элемент
+
+// Чтобы вставить новый элемент перед объектом
+newBlock.before(newElement);
+
+/*
+// Чтобы вставить новый элемент после объекта
+newBlock.after(newElement);
+*/
+/*
+// Чтобы вставить новый элемент внутрь и в начало объекта
+newBlock.prepend(newElement);
+*/
+/*
+// Чтобы вставить новый элемент внутрь и в конец объекта
+tnewBlock.append(newElement);
+*/
 ///////////////// Размеры ////////////////////
 
 const sector = document.querySelector('.sector');

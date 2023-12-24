@@ -32,11 +32,7 @@ body {
   height: 50px;
 }
 
-.page {
-  position: relative;
-}
-
-[class*="__container"] {
+[class*=__container] {
   max-width: 1100px;
   margin: 0 auto;
 }
@@ -74,8 +70,7 @@ body {
   background-color: #333;
   margin-top: -1px;
 }
-.some-menu__icon::before,
-.some-menu__icon::after {
+.some-menu__icon::before, .some-menu__icon::after {
   content: "";
   position: absolute;
   width: 100%;
@@ -237,7 +232,7 @@ body {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
-  object-fit: cover;
+     object-fit: cover;
 }
 
 .item-cards__body {
@@ -374,4 +369,11 @@ body {
   color: #000;
   margin-top: 500px;
   margin-bottom: 10000px;
-} /*# sourceMappingURL=style.css.map */
+}
+
+.block {
+  padding: 20px 0;
+  background-color: #fff;
+  color: #000;
+  font-size: 24px;
+}/*# sourceMappingURL=style.css.map */
