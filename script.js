@@ -700,13 +700,18 @@ function removeClasses(elements, className) {
 const block = document.querySelector('.block');
 
 // Получить предыдущий объект (находящийся перед блокомб тот от которого отталкиваемся)
-// записываем в переменную блок тогожа уровня который находится сразу перед тем от которого отталкиваемся
+// записываем в переменную блок тогоже уровня который находится сразу перед тем от которого отталкиваемся
 const blockPrev = block.previousElementSibling;
 // console.log(blockPrev);
 // Получить следующий объект (находящийся после блока тот от которого отталкиваемся)
 // записываем в переменную блок того же уровня который находится сразу после того от которого отталкиваемся
 const blockNext = block.nextElementSibling;
 // console.log(blockNext);
+*/
+/*
+// Получениепредыдущего и следующего узла
+previousSibling;
+nextSibling;
 */
 /*
 // Получить предка блока
@@ -729,6 +734,9 @@ console.log(bloksChildrensAll);
 // Получить дочерние элементы блока первого уровня вложенности
 const blockChildrens = block.children;
 // console.log(blockChildrens);
+
+// Получить всех непосредственных детей данного блока
+// const blockChildren = block.childNodes;
 
 // Искать первый и последний элемент 
 
@@ -791,6 +799,87 @@ targetElement.nextElementSibling.hidden = targetElement.nextElementSibling.hidde
 }
 }
 */
+
+///////////////// Получение и изменение содержимого элемента ////////////////////
+
+// С его помощью можно присвоить (поменять) текст внутри элемента
+// innerHTML 
+// const text = document.querySelector('.block__text');
+/*
+К примеру, в элементе есть какой-то текст.
+<p class="text">Мир</p>
+
+text.innerHTML = "Привет";
+Теперь текст в элементе изменится с Мир на Привет.
+*/
+/*
+// Пример:
+const text = document.querySelector('.some-block');
+
+text.innerHTML = "Hello";
+//  Получить содержимое элемента "как есть".
+const textElement = text.innerHTML;
+
+console.log(textElement);
+*/
+
+/*
+// Дописываем содержимое объекта
+text.innerHTML = `<p>${textElement}</p> 
+<p>my <span class="yellow">World</span></p>`;
+console.log(text.innerHTML);
+*/
+
+// Получение и изменение документа целиком с помощью outerHTML 
+// outerHTML
+/*
+const text = document.querySelector('.some-block');
+
+const textElement = text.outerHTML;
+
+console.log(textElement);
+*/
+
+// Получить ТОЛЬКО ТЕКСТ элемента
+// textContent
+/*
+const text = document.querySelector('.some-block');
+
+const textElement = text.textContent;
+
+console.log(textElement);
+*/
+
+/*
+// Содоержимое текстового узла / документа
+// data
+
+// Получаем объект
+const text = document.querySelector('.some-block');
+
+const getComment = text.nextSibling;
+
+console.log(getComment);
+console.log(getComment.data);
+// Изменение текстового узла / комментария 
+getComment.data = "я новый текст комментария";
+console.log(getComment.data);
+*/
+
+//////////////// Методы создания элементов и узлов в HTML через JS //////////////////
+//  создание элемента (тега)
+// createElement('div');
+
+const newElement = document.createElement('div');
+// console.log(newElement);
+
+// Наполняем новый элемент
+
+newElement.innerHTML = `Я созданыый через <span class="yellow">JS</span> новый элемент!!!`;
+console.log(newElement);
+
+
+
 ///////////////// Размеры ////////////////////
 
 const sector = document.querySelector('.sector');
@@ -799,11 +888,16 @@ const sector = document.querySelector('.sector');
 
 const sectorWidth = sector.offsetWidth;
 // console.log(`Ширина объекта ${sectorWidth}px`);
+//  innerWidth 
+//  Внутренняя ширина объекта
+
 
 // Высота
 
 const sectorHeight = sector.offsetHeight;
 // console.log(`Высота объекта ${sectorHeight}px`);
+// innerHeight
+//  Внутренняя высота объекта
 
 // Метод который возвращает положение объекта относительно ВЬЮПОРТА
 // Имеет параметры top, left

@@ -2,8 +2,7 @@
 *,
 *::after,
 *::before {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
@@ -18,21 +17,14 @@ body {
 }
 
 .wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   height: 100%;
 }
 
 .page {
   position: relative;
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 auto;
-          flex: 1 1 auto;
+  flex: 1 1 auto;
 }
 
 .footer {
@@ -44,7 +36,7 @@ body {
   position: relative;
 }
 
-[class*=__container] {
+[class*="__container"] {
   max-width: 1100px;
   margin: 0 auto;
 }
@@ -58,23 +50,15 @@ body {
   margin: 0 auto;
   max-width: 800px;
   background-color: #506644;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  align-items: center;
+  justify-content: flex-end;
   padding: 10px 15px;
   gap: 15px;
 }
 .some-menu__icon {
   display: none;
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 30px;
-          flex: 0 0 30px;
+  flex: 0 0 30px;
   height: 20px;
   position: relative;
   background-color: transparent;
@@ -90,7 +74,8 @@ body {
   background-color: #333;
   margin-top: -1px;
 }
-.some-menu__icon::before, .some-menu__icon::after {
+.some-menu__icon::before,
+.some-menu__icon::after {
   content: "";
   position: absolute;
   width: 100%;
@@ -105,22 +90,16 @@ body {
   bottom: 0;
 }
 .menu-active .some-menu__icon span {
-  -webkit-transform: scale(0);
-      -ms-transform: scale(0);
-          transform: scale(0);
+  transform: scale(0);
 }
 .menu-active .some-menu__icon::before {
   top: 50%;
   margin-top: -1px;
-  -webkit-transform: rotate(-45deg);
-      -ms-transform: rotate(-45deg);
-          transform: rotate(-45deg);
+  transform: rotate(-45deg);
 }
 .menu-active .some-menu__icon::after {
   bottom: 50%;
-  -webkit-transform: rotate(45deg);
-      -ms-transform: rotate(45deg);
-          transform: rotate(45deg);
+  transform: rotate(45deg);
   margin-top: -1px;
 }
 @media (max-width: 700px) {
@@ -129,16 +108,13 @@ body {
   }
 }
 .some-menu__body {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 auto;
-          flex: 1 1 auto;
+  flex: 1 1 auto;
 }
 @media (max-width: 700px) {
   .some-menu__body {
     position: fixed;
     top: 0;
     left: -100%;
-    -webkit-transition: all 0.3s ease 0s;
     transition: all 0.3s ease 0s;
     width: 100%;
     height: 100%;
@@ -154,7 +130,6 @@ body {
     top: 0;
     right: -100%;
     background-color: #536847;
-    -webkit-transition: all 0.3s ease 0s;
     transition: all 0.3s ease 0s;
   }
   .menu-active .some-menu__body {
@@ -165,18 +140,13 @@ body {
   }
 }
 .some-menu__list {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   list-style: none;
   gap: 15px;
 }
 @media (max-width: 700px) {
   .some-menu__list {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    flex-direction: column;
   }
 }
 .some-menu__link {
@@ -209,7 +179,6 @@ body {
 
 .green {
   background-color: green;
-  -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
 }
 
@@ -223,8 +192,7 @@ body {
   padding: 10px 15px;
   border-radius: 10px;
   border: none;
-  -webkit-box-shadow: 0px 0px 5px 2px #000;
-          box-shadow: 0px 0px 5px 2px #000;
+  box-shadow: 0px 0px 5px 2px #000;
 }
 
 .red {
@@ -246,19 +214,14 @@ body {
 
 .cards {
   list-style: none;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
   margin: 0 -15px;
 }
 
 .cards__item {
   padding: 0 15px;
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 50%;
-          flex: 0 0 50%;
+  flex: 0 0 50%;
 }
 
 .item-cards {
@@ -274,7 +237,7 @@ body {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .item-cards__body {
@@ -299,8 +262,6 @@ body {
 }
 
 .item-cards.line {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   padding-top: 0px;
 }
@@ -369,7 +330,6 @@ body {
 
 .dark-theme .menu__link {
   color: #45cc31;
-  -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
 
@@ -414,4 +374,4 @@ body {
   color: #000;
   margin-top: 500px;
   margin-bottom: 10000px;
-}
+} /*# sourceMappingURL=style.css.map */
